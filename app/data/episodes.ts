@@ -16,7 +16,7 @@ export const episodes: Episode[] = Array.from({ length: 91 }, (_, i) => {
   const pad = String(n).padStart(2, '0')
   return {
     number: n,
-    title: `Ashtavakra Maha Geeta`,
+    title: `Discourse ${pad} · Ashtavakra Maha Geeta`,
     duration: knownDurations[n] ?? '',
     slug: `ashtavakra-maha-geeta-${pad}`,
     audioUrl: `https://oshoworld.com/wp-content/uploads/2020/11/Hindi%20Audio/OSHO-Maha_Geeta_${pad}.mp3`,

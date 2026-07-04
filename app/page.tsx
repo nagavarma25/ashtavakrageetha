@@ -120,12 +120,12 @@ function AudioRow({
         <span
           className="shrink-0 tabular-nums"
           style={{
-            fontSize: 11,
+            fontSize: 12,
             fontFamily: "'Raleway', sans-serif",
-            fontWeight: 600,
-            letterSpacing: '0.05em',
-            color: isActive ? '#C9A84C' : '#8C8880',
-            width: 24,
+            fontWeight: 700,
+            letterSpacing: '0.08em',
+            color: isActive ? '#C9A84C' : 'rgba(201,168,76,0.55)',
+            width: 28,
           }}
         >
           {String(ep.number).padStart(2, '0')}
@@ -135,11 +135,12 @@ function AudioRow({
         <span
           className="flex-1 min-w-0 truncate"
           style={{
-            fontSize: 16,
+            fontSize: 15,
             fontFamily: "'Cormorant Garamond', serif",
             fontWeight: isActive ? 500 : 400,
-            color: isActive ? '#1A1A1A' : '#2A2A2A',
+            color: isActive ? '#1A1A1A' : '#3A3530',
             lineHeight: 1.3,
+            letterSpacing: '0.01em',
           }}
         >
           {ep.title}
