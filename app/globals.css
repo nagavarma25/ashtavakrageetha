@@ -2,36 +2,87 @@
 @import "tailwindcss";
 
 :root {
-  --ivory: #F9F7F2;
-  --charcoal: #1A1A1A;
-  --gold: #C9A84C;
-  --muted: #8C8880;
-  --border: #E8E4DC;
+  --ivory:    #ECE8D8;
+  --charcoal: #ECE8D8;
+  --gold:     #D4A855;
+  --muted:    rgba(205,195,165,0.65);
+  --border:   rgba(82,183,136,0.18);
 }
 
 @theme inline {
-  --color-ivory: var(--ivory);
+  --color-ivory:    var(--ivory);
   --color-charcoal: var(--charcoal);
-  --color-gold: var(--gold);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
+  --color-gold:     var(--gold);
+  --color-muted:    var(--muted);
+  --color-border:   var(--border);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--ivory);
-  color: var(--charcoal);
+  background-color: #071A09;
+  background-image:
+    /* Sunlight shafts filtering through canopy */
+    radial-gradient(ellipse 130px 650px at  10%   0%, rgba(255,215,95,0.07)  0%, transparent 65%),
+    radial-gradient(ellipse  90px 550px at  30%  -5%, rgba(200,235,130,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 150px 750px at  55%   0%, rgba(255,220,105,0.08) 0%, transparent 68%),
+    radial-gradient(ellipse  85px 520px at  78%  -4%, rgba(195,230,120,0.05) 0%, transparent 62%),
+    radial-gradient(ellipse 110px 620px at  96%   0%, rgba(255,210,90,0.06)  0%, transparent 64%),
+    /* Upper canopy mist glow */
+    radial-gradient(ellipse 100% 18% at 50%  2%,     rgba(90,185,105,0.12)  0%, transparent 52%),
+    /* Mid-forest ambient */
+    radial-gradient(ellipse  65% 38% at 50% 48%,     rgba(22,61,30,0.22)    0%, transparent 65%),
+    /* Forest floor deep shadow */
+    radial-gradient(ellipse 100% 22% at 50% 100%,    rgba(4,15,6,0.92)      0%, transparent 55%),
+    /* Base forest gradient */
+    linear-gradient(180deg,
+      #071A09  0%,
+      #0E2D14 18%,
+      #163D1E 38%,
+      #1F4E26 55%,
+      #163D1E 72%,
+      #0E2D14 88%,
+      #071A09 100%
+    );
+  color: var(--ivory);
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
   background-color: var(--gold);
-  color: var(--ivory);
+  color: #040F06;
+}
+
+input::placeholder {
+  color: var(--muted);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .3; }
+}
+
+@keyframes firefly {
+  0%   { opacity: 0;   transform: translate(0,     0)    scale(0.8); }
+  25%  { opacity: 0.9; transform: translate(8px,  -12px) scale(1.2); }
+  60%  { opacity: 0.4; transform: translate(-5px, -22px) scale(0.9); }
+  85%  { opacity: 0.7; transform: translate(12px, -16px) scale(1.1); }
+  100% { opacity: 0;   transform: translate(0,     0)    scale(0.8); }
+}
+
+@keyframes mistDrift {
+  0%, 100% { transform: translateX(0)    scaleX(1);    opacity: 0.50; }
+  50%       { transform: translateX(28px) scaleX(1.04); opacity: 0.75; }
+}
+
+@keyframes shimmerShaft {
+  0%, 100% { opacity: 0.50; }
+  50%       { opacity: 0.90; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes firefly      { 0%, 100% { opacity: 0; }    50% { opacity: 0.4; } }
+  @keyframes mistDrift    { 0%, 100% { transform: none; } }
+  @keyframes shimmerShaft { 0%, 100% { opacity: 0.6; } }
 }
